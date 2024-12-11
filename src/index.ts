@@ -132,7 +132,7 @@ async function setup() {
 
     await createExampleGame();
 
-    const httpPort = process.env.HTTP_PORT ? parseInt(process.env.HTTP_PORT) : 3443;
+    const httpPort = process.env.HTTP_PORT ? parseInt(process.env.HTTP_PORT) : 3444;
     const httpServer = http.createServer(app);
 
     const wss = new WebSocketServer({ server: httpServer });
