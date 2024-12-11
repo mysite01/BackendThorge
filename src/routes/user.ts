@@ -22,8 +22,7 @@ userRouter.post("/", async (req, res, next) => {
 /**
  * Route zum Löschen eines Benutzers anhand der ID
  */
-// userRouter.ts
-// userRouter.ts
+
 userRouter.delete("/:id", async (req, res, next) => {
     const { id } = req.params;
 
@@ -57,5 +56,19 @@ userRouter.get("/:id", async (req, res, next) => {
     } catch (err) {
         res.status(500).json({ message: 'Fehler beim Abrufen des Benutzers' });
         next(err);
+    }
+});
+
+
+/** update user */
+userRouter.put("/:id", async (req, res, next) => {
+    try {
+        const userId = req.params.id;
+            const updatedUser = await UserService.updateUser(userId, req.body); 
+            res.status(200).send(updatedUser);  
+         
+    } catch (err) {
+        res.status(404); 
+        next(err); 
     }
 });

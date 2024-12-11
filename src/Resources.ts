@@ -47,6 +47,8 @@ export type UserResource = {
     name: string;
     password?: string;
     createdAt?: Date;
+    email?:string;
+    emailConfirmed?:boolean;
 };
 
 export type POIResource = {
