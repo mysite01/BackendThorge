@@ -21,10 +21,12 @@ export async function verifyPasswordAndCreateJWT(name: string, password: string)
         sub: user.id, // Benutzer-ID
     };
 
+   
     const jwtString = sign(payload as any, secret as any, {
         expiresIn: ttl,
         algorithm: "HS256",
-    });
+    } as any);
+    
 /** 
     const jwtString = sign(payload, secret, {
         expiresIn: ttl,
